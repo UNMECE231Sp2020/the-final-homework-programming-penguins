@@ -165,38 +165,42 @@ class List {
 		}
 		template<typename V> friend bool operator==(const List<V> &a, const List<V> &b);
 		template<typename V> friend bool operator!=(const List<V> &a, const List<V> &b);
+		template <class V> friend std::ostream &operator<<(std::ostream &os, const List<V> &list);
 };
 
 
 template<typename V>
 bool operator==(const List<V> &a, const List<V> &b){
-			//TODO: why don't you try the auto keyword?
-			for(auto tempa=a._front, tempb=b._front; 
-					(tempa!=nullptr) || (tempb != nullptr); 
-					tempa=tempa->next, tempb = tempb->next) {
-
-				if(tempa->value != tempb->value){
-					return false;
-				}	
-			}
-			if(a.size() != b.size()){
-				return false;
-			}
-			else{
-				return true;
-			}
-		}
-		template<typename V> bool operator!=(const List<V> &a, const List<V> &b){
-			//TODO: why don't you try the auto keyword?
-			for(auto tempa=a._front, tempb=b._front; tempa!=nullptr || tempb != nullptr; tempa=tempa->next, tempb = tempb->next) {
-				if(tempa->value != tempb->value){
-				return true;
-				}	
-			}
-			if(a.size() != b.size()){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
+	for(auto tempa=a._front, tempb=b._front; (tempa!=nullptr) || (tempb != nullptr); tempa=tempa->next, tempb = tempb->next) {
+		if(tempa->value != tempb->value){
+			return false;
+		}	
+	}
+	if(a.size() != b.size()){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+template<typename V> 
+bool operator!=(const List<V> &a, const List<V> &b){
+	for(auto tempa=a._front, tempb=b._front; tempa!=nullptr || tempb != nullptr; tempa=tempa->next, tempb = tempb->next) {
+		if(tempa->value != tempb->value){
+		return true;
+		}	
+	}
+	if(a.size() != b.size()){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+template <class V>
+std::ostream &operator<<(std::ostream &os, const List<V> &list) {
+    for(auto *iter = list._front; iter != nullptr; iter = iter->next) {
+            os << iter->value << " ";
+    }
+    return os;
+}
