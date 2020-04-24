@@ -36,10 +36,12 @@ class Queue {
 		//Pop from queue
 		void dequeue();
 		
-		void print();
-		
-		bool search(Q value);
-		
+		void print(){
+			_data.print();
+		}
+		bool search(Q value){
+			return _data.search(value);
+		}
 		bool empty();
 		
 		Queue<Q> operator=(const Queue<Q> q) {
