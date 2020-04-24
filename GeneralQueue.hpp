@@ -11,29 +11,35 @@ class Queue {
 	public:
 		//Default constructor
 		Queue();
-
+		
 		//Copy constructor
 		Queue(const Queue &q);
-
+		
 		//Getters
-		size_t size() const;
-
-		Q front() const;
-
-		Q back() const;
-
+		size_t size() const
+		{
+			return _size;
+		}
+		Q front() const
+		{
+			return _data.front();
+		}		
+		Q back() const
+		{
+			return _data.back();
+		}
 		//Push to queue
 		void enqueue(Q value);
-
+		
 		//Pop from queue
 		void dequeue();
-
+		
 		void print();
-
+		
 		bool search(Q value);
-
+		
 		bool empty();
-
+		
 		Queue<Q> operator=(const Queue<Q> q) {
 			_data = q._data;
 			_size = _data.size();
