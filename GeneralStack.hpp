@@ -9,34 +9,54 @@ class Stack {
 		
 	public:
 		//Default constructor
-		Stack();
-
+		Stack(){
+			_size = 0;
+		}
+		
 		//Default copy constructor
-		Stack(const Stack &stack);
+		Stack(const Stack &stack) {
+			//_data = 
+			_size = stack.size();
+		}
 
 		//Getters
-		T top() const;
+		T top() const {
+			return data.front();
+		}
 
-		size_t size() const;
+		size_t size() const {
+			return _size;
+		}
 
 		//Adding data to the data structure
-		void push(T value);
+		void push(T value) {
+			_data.push_front(value);
+			_size = _data.size();
+		}
 
 		//Removing data from the data structure
-		void pop();
-
+		void pop() {
+			_data.pop_front();
+			_size = _data.size();
+		}
 		bool search(T value) {
 			return _data.search(value);
 		}
 
 
-		bool empty() const;
+		bool empty() const {
+			return_data.empty();
+		}
 
-		void print();
+		void print(){
+			_data.print();
+		}
 
 		//This overloaded operator is empty, please implement
 		Stack<T> operator=(const Stack<T> &stack) {
-			;
+			_size = stack.size();	
+			//_data = stack;
+			reurn this;
 		}
 
 		template <class S>
