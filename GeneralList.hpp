@@ -79,7 +79,15 @@ class List {
 		size_t length() const {
 			return _size;
 		}
-
+		bool search(Data search_value) {
+		    Dlist *temp;
+		    for(temp=_front; temp!=nullptr; temp=temp->next) {
+			    if(temp->value == search_value) {
+			            return true;
+		            }
+		    }
+		return false;
+		}
 		void push_front(Data data) {
 			Dlist *newNode = new Dlist;
 			newNode->value = data;
