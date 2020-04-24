@@ -21,7 +21,7 @@ class Stack {
 
 		//Getters
 		T top() const {
-			return data.front();
+			return _data.front();
 		}
 
 		size_t size() const {
@@ -45,7 +45,7 @@ class Stack {
 
 
 		bool empty() const {
-			return_data.empty();
+			return _data.empty();
 		}
 
 		void print(){
@@ -55,8 +55,8 @@ class Stack {
 		//This overloaded operator is empty, please implement
 		Stack<T> operator=(const Stack<T> &stack) {
 			_size = stack.size();	
-			//_data = stack;
-			reurn this;
+			_data();		//reconstruct with nothing in it
+			return this;
 		}
 
 		template <class S>
