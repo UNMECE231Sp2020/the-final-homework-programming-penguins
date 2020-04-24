@@ -15,6 +15,7 @@ class Stack {
 		
 		//Default copy constructor
 		Stack(const Stack &stack) {
+			//TODO: Why not access stack's _data attribute?
 			//_data = 
 			_size = stack.size();
 		}
@@ -55,6 +56,8 @@ class Stack {
 		//This overloaded operator is empty, please implement
 		Stack<T> operator=(const Stack<T> &stack) {
 			_size = stack.size();	
+			//TODO: why not copy _data from stack to the interal 
+			// _data like you did with _size?
 			_data();		//reconstruct with nothing in it
 			return this;
 		}
