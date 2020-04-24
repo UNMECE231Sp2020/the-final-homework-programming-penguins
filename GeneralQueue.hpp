@@ -10,22 +10,24 @@ class Queue {
 		size_t _size;
 	public:
 		//Default constructor
-		Queue();
-		
+		Queue(){
+			_data._size = 0;
+			_data._front = nullptr;
+			_data.back = nullptr;
+		}
 		//Copy constructor
 		Queue(const Queue &q);
-		
+			_data._size = 0;
+			_data._front = nullptr;
+			_data.back = nullptr;
 		//Getters
-		size_t size() const
-		{
+		size_t size() const{
 			return _size;
 		}
-		Q front() const
-		{
+		Q front() const{
 			return _data.front();
 		}		
-		Q back() const
-		{
+		Q back() const{
 			return _data.back();
 		}
 		//Push to queue
