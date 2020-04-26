@@ -11,7 +11,7 @@ class Queue {
 	public:
 		//Default constructor
 		Queue(){
-			_data = new List<Q>;
+			_data();
 			_size = _data.size();
 		}
 		//Copy constructor

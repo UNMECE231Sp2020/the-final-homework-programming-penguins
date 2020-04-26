@@ -10,6 +10,7 @@ class Stack {
 	public:
 		//Default constructor
 		Stack(){
+			_data();
 			_size = _data.size();
 		}
 		
