@@ -39,8 +39,8 @@ class List {
 		
 		}
 
-		List &operator=(const List &x){
-			size = x.size;
+		List operator=(const List &x){
+			size = x.size();
 			Dlist *temp;
 			front = temp;
 			for(temp=x.front; temp!=nullptr; temp=temp->next) {
