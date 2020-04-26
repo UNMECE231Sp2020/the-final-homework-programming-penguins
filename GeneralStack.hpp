@@ -10,13 +10,13 @@ class Stack {
 	public:
 		//Default constructor
 		Stack(){
-			_size = 0;
+			_size = _data.size();
 		}
 		
 		//Default copy constructor
 		Stack(const Stack &stack) {
 			//TODO: Why not access stack's _data attribute?
-			//_data = 
+			_data = stack._data;
 			_size = stack.size();
 		}
 
@@ -58,15 +58,31 @@ class Stack {
 			_size = stack.size();	
 			//TODO: why not copy _data from stack to the interal 
 			// _data like you did with _size?
-			_data();		//reconstruct with nothing in it
+			_data = stack._data;
 			return this;
 		}
 
-		template <class S>
-		friend std::ostream &operator<<(std::ostream &out, const Stack<S> &stack);
-		template <class S>
-		friend bool operator==(const Stack<S> &left_side, const Stack<S> &right_side);
-		template <class S>
-		friend bool operator!=(const Stack<S> &left_side, const Stack<S> &right_side);
+		template <class S> friend std::ostream &operator<<(std::ostream &out, const Stack<S> &stack);
+		template <class S> friend bool operator==(const Stack<S> &left_side, const Stack<S> &right_side);
+		template <class S> friend bool operator!=(const Stack<S> &left_side, const Stack<S> &right_side);
 
 };
+
+template <class S> std::ostream &operator<<(std::ostream &out, const Stack<S> &stack) {
+	out << stack._data;
+	return out;
+}
+template <class S> bool operator==(const Stack<S> &left_side, const Stack<S> &right_side) {
+	if(left_side.size() == right_side.size() && left_side._data == right_side._data) {
+		return true;
+	}else{
+		return false;
+	}
+}
+template <class S> bool operator!=(const Stack<S> &left_side, const Stack<S> &right_side) {
+	if(left_side.size() == right_side.size() && left_side._data == right_side._data) {
+		return false;
+	}else{
+		return true;
+	}
+}

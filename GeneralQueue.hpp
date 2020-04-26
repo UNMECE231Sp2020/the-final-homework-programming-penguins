@@ -11,10 +11,12 @@ class Queue {
 	public:
 		//Default constructor
 		Queue(){
+			_data = new List<Q>;
 			_size = _data.size();
 		}
 		//Copy constructor
 		Queue(const Queue &q){
+			_data = q._data;
 			_size = q.size();
 		}
 		//Getters
@@ -29,11 +31,11 @@ class Queue {
 		}
 		//Push to queue
 		void enqueue(Q value);
-			data.push_front(value);
+			_data.push_front(value);
 			_size = _data.size();
 		//Pop from queue
 		void dequeue();
-			data.pop_back();
+			_data.pop_back();
 			_size = _data.size();
 		void print(){
 			_data.print();
@@ -45,37 +47,32 @@ class Queue {
 			return _data.empty();
 		}	
 		Queue<Q> operator=(const Queue<Q> q) {
-			_size = Q.size();
+			_size = q.size();
 			return this;
 		}
 
-		template <class U>
-		friend std::ostream &operator<<(std::ostream &out, const Queue<U> &q){
-			
-		}
-		template <class U>
-		friend bool operator==(const Queue<U> &left_queue, const Queue<U> &right_queue){
-			for(List tempa = left_queue.front, List tempb = right_queue.front; tempa!=nullptr || tempb != nullptr; tempa = tempa->next, tempb = tempb->next) {
-				if(tempa.value != tempb.value)
-					return false;
-			}
-			if(Q.size() == _size){
-				return false;
-			} else {
-				return true;
-			}
-
-		}
-		template <class U>
-		friend bool operator!=(const Queue<U> &left_queue, const Queue<U> &right_queue){
-			for(List tempa = left_queue.front, List tempb = right_queue.front; tempa!=nullptr || tempb != nullptr; tempa = tempa->next, tempb = tempb->next) {
-				if(tempa.value != tempb.value)
-					return false;
-			}
-			if(Q.size() == _size){
-				return false;
-			} else {
-				return true;
-			}
-		}
+		template <class U> friend std::ostream &operator<<(std::ostream &out, const Queue<U> &q);
+		template <class U> friend bool operator==(const Queue<U> &left_queue, const Queue<U> &right_queue);
+		template <class U> friend bool operator!=(const Queue<U> &left_queue, const Queue<U> &right_queue);
 };
+
+template <class U> std::ostream &operator<<(std::ostream &out, const Queue<U> &q){
+	out << q._data;
+	return out;
+}
+
+template <class U> bool operator==(const Queue<U> &left_side, const Queue<U> &right_side){
+	if(left_side.size() == right_side.size() && left_side._data == right_side._data) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+template <class U> bool operator!=(const Queue<U> &left_side, const Queue<U> &right_side){
+	if(left_side.size() == right_side.size() && left_side._data == right_side._data) {
+		return false;
+	}else{
+		return true;
+	}
+}
