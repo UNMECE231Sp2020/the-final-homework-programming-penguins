@@ -1,5 +1,6 @@
-FNS = GeneralList.hpp GeneralStack.hpp GeneralQueue.hpp
-MAIN = main.cpp $(FNS)
+# I removed the whole line with FNS = ...
+# Also removed '$(FNS)'
+MAIN = main.cpp
 
 all:
 	g++ $(MAIN) -o run_tests
