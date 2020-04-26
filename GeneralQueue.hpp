@@ -11,9 +11,7 @@ class Queue {
 	public:
 		//Default constructor
 		Queue() {
-			// TODO: _data(); is not needed, you can set _size to zero
-			_data();
-			_size = _data.size();
+			_size = 0;
 		}
 		//Copy constructor
 		Queue(const Queue &q) {

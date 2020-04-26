@@ -10,8 +10,7 @@ class Stack {
 	public:
 		//Default constructor
 		Stack(){
-			_data();
-			_size = _data.size();
+			_size = 0;
 		}
 		
 		//Default copy constructor
