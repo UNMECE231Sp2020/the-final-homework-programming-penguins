@@ -9,7 +9,7 @@ class Queue {
 		List<Q> _data;
 		size_t _size;
 	public:
-		//Default constructor
+				//Default constructor
 		Queue() {
 			_size = 0;
 		}
