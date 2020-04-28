@@ -1,4 +1,4 @@
 all:
-	g++ main.cpp -o 
+	g++ main.cpp -o run_tests
 rm:
-	rm
+	rm run_tests

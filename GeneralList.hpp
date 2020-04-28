@@ -39,14 +39,15 @@ class List {
 		
 		}
 
-		List operator=(const List &x){
-			size = x.size();
-			Dlist *temp;
-			front = temp;
-			for(temp=x.front; temp!=nullptr; temp=temp->next) {
-				push_back(temp->value);
-			}
-			back = temp;
+		List &operator=(List x){
+			if(!empty()){
+				do {
+					pop_front();
+				} while(!empty());
+			}	
+			_front = NULL;
+			_back = NULL;
+			reccopy(x._front);
 			return *this;
 		}
 		
